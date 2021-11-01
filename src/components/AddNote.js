@@ -3,7 +3,7 @@ import noteContext from '../context/notes/noteContext';
 
 
 
-export const AddNote = () => {
+export const AddNote = (props) => {
     
     const context = useContext(noteContext);
     const {  addNote } = context;
@@ -15,6 +15,7 @@ const [note, setNote] = useState({title:"", description: "",  tag: "personal"});
     const handleClick = (e)=>{
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
+        props.showAlert("Added Successfully", "success")
         setNote({title:"", description: "",  tag: "personal"})
     }
     
